@@ -168,10 +168,9 @@ Report the variance components for the fixed effects, the random intercept, and 
 library(kableExtra) 
 library(knitr)
 library(lme4)
-#chatgpt helped me with this tbh
+#chatgpt helped me with formatting here
 
-fixed_effects <- data.frame(
-  Predictor = c("(Intercept)", "Age", "Sex", "STAI Trait anxiety", "Pain catastrophizing", "Cortisol - from saliva", "Mindfulness"),
+fixed_effects <- data.frame(Predictor = c("(Intercept)", "Age", "Sex", "STAI Trait anxiety", "Pain catastrophizing", "Cortisol - from saliva", "Mindfulness"),
   Estimate = round(fixef(mixed_model), 3),
   SE = round(summary(mixed_model)$coefficients[, "Std. Error"], 3),
   t_value = round(summary(mixed_model)$coefficients[, "t value"], 2),
@@ -219,4 +218,8 @@ r2_table %>%
     stripe_index = c(2))
 
 ```
+
+##Discussion 
+Fitting a Mixed effects regression enables us to generalize the results across hospitals. Mindfulness emerges as a significant predictor, after controlling for hospital as a random intercept.
+
 
